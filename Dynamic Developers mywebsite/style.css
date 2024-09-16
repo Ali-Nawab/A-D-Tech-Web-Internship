@@ -1,0 +1,735 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --clr-primary-1: #ff8C00;
+  --clr-white: #fff;
+  --ff-primary: "Lato", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+  background: var(--clr-white);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+/* img {
+  width: 100%;
+  display: block;
+} */
+img:not(.nav-logo) {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+.btn {
+  text-transform: capitalize;
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  /* font-weight: 700; */
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+}
+.section{
+    padding: 5rem 0;
+}
+.section-title{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.section-title h2{
+    text-transform: uppercase;
+}
+.section-title span{
+    color: var(--clr-primary-5);
+}
+.section-center{
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+}
+@media screen and (min-width: 992px){
+    .section-center{
+        width: 95vw;
+    }
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+.navbar{
+  background: #1b1b1b;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.nav-center{
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0.25rem 1.5rem;
+}
+.nav-links {
+  height: 0;
+  overflow: hidden; /* Prevents content from spilling out when height is 0 */
+  transition: height 0.3s ease-in-out; /* Smooth transition for height */
+}
+.show-links {
+  height: 250px; /* Adjust this value as per your content height */
+}
+.nav-logo{
+  width: 120px;
+  height: 64px;
+}
+.nav-header{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.nav-toggle{
+  justify-self: end;
+  margin-right: 1.5rem;
+  background: transparent;
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.nav-toggle i{
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 970px){
+  .nav-toggle{
+    display: none;
+  }
+  .nav-link{
+    color: var(--clr-white);
+    font-size: 1.2rem;
+    display: block;
+    font-variant: small-caps;
+    padding: 0.25rem 0.75rem;
+    border: 0;
+    margin-right: 0.5rem;
+  }
+  .nav-link:hover{
+    outline: 1px solid var(--clr-primary-1);
+    border-radius: 0.25rem;
+    color: var(--clr-primary-1);
+    box-shadow: 0 0 5px 2px var(--clr-primary-1);
+  }
+  .dropdown{
+    position: relative;
+  }
+  .dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Aligns with the bottom of the dropdown button */
+    left: 0;
+    right: 0;
+    height: 20px; /* Adjust this value to control the size of the gap */
+    z-index: 1;
+  }
+  .dropdown-content{
+    position: absolute;
+    top: calc(100% + 70px); /* Adjusts the top position to account for the gap */
+    /* display: none; */
+    height: auto; /* Adjusted for automatic height */
+    opacity: 0; /* Fully transparent */
+    visibility: hidden; /* Hide but keep space */
+    transform: translateY(-30px); /* Move up slightly for smoother entrance */
+    transition: all 0.3s ease-out; /* Smooth transition */
+    background: #1b1b1b;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .nav-links li:hover .dropdown-content {
+    top: calc(100% + 20px); /* Final position */
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+    transform: translateY(0); /* Reset translate to original position */
+}
+
+  .nav-underline{
+    width: 100%;
+    background: var(--clr-white);
+    height: 0.1rem;
+  }
+  .dropdown-content a{
+    color: var(--clr-white);
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-content a:hover{
+    color: var(--clr-primary-1);
+  }
+  /* .nav-links li:hover .dropdown-content,
+  .dropdown-content:hover {
+    display: block;
+  } */
+  /* Existing CSS for .dropdown-content remains unchanged */
+
+/* Style adjustments for nested dropdowns */
+.dropdown-more {
+  position: relative; /* Needed for absolute positioning of child elements */
+}
+.dropdown-more-content {
+  position: absolute;
+  top: 80%; /* Aligns with the top of the "More" link */
+  left: 75%; /* Positions to the right of the "More" link */
+  display: none;/* Initially hidden */
+  background-color: #1b1b1b; /* Matches the parent dropdown background */
+  min-width: 160px; /* Ensures consistent width with parent dropdown */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Optional: matches parent dropdown shadow */
+  z-index: 1; /* Ensures it appears above other content */
+}
+
+/* Show nested dropdown on hover */
+.dropdown-more:hover .dropdown-more-content {
+  display: block; /* Reveals the nested dropdown content on hover */
+}
+
+/* Adjustments for the "More" link to indicate it has a submenu */
+
+  .nav-center{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  } 
+  .nav-links{
+    height: auto; /* Ensure height is auto for larger screens */
+    overflow: visible; /* Allow the content to be visible */
+    display: grid; /* Ensure the links are displayed in a grid */
+    grid-template-columns: repeat(6, auto); /* Layout the links in a row */
+    justify-self: end; /* Align the links to the right */
+  }
+}
+
+/*
+==============================
+Header
+==============================
+*/
+
+.header {
+    min-height: 170vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: url('images/background-img.png') center/cover no-repeat;
+    overflow: hidden;
+}
+.header-img {
+    display: none;
+}
+.underline{
+  width: 3.1rem;
+  height: 0.25rem;
+  background: var(--clr-primary-1);
+  border-radius: var(--radius);
+}
+.header-info p{
+    color: var(--clr-white);
+    font-size: 2rem;
+}
+.header-info h1{
+    color: var(--clr-white);
+    margin-bottom: 1rem;
+}
+.header-btn{
+    font-size: 1.2rem;
+    background: var(--clr-primary-1);
+    border-radius: var(--radius);
+}
+@media screen and (min-width: 992px){
+    .header{
+        min-height: 120vh;
+        padding: 0 5rem;
+    }
+    .header-section{
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+    .header-img{
+        display: block;
+        align-self: center;
+        width: 200px;
+        height: 177px;
+    }
+    .header-info h1{
+        font-size: 3.5rem;
+    }
+    
+}
+
+/*
+==============================
+About
+==============================
+*/
+.section-title p{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.about-title{
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+.about-text{
+  color: #555;
+  text-align: justify;
+}
+.about-btn{
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+  border-radius: var(--radius);
+  font-size: 1.2rem;
+}
+.about-skills{
+  margin: 3.5rem 0;
+}
+.skills-title{
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+.bar{
+  width: 100%;
+  height: 1.75rem;
+  margin-bottom: 1rem;
+  background-color: #e0e0e0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.progress{
+  background: var(--clr-primary-1);
+  height: 100%;
+  text-align: center;
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  font-size: 1rem;
+  font-weight: 500;
+}
+@media screen and (min-width: 576px){
+  .about-center {
+    width: 576px;
+    margin: 0 auto;
+}
+}
+@media screen and (min-width: 768px){
+  .about{
+    margin-bottom: 4rem;
+  }
+  .about-center{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 85vw;
+  }
+  .about-skills{
+    margin: 0;
+  }
+}
+
+/*
+==============================
+Services
+==============================
+*/
+.services{
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('images/services.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.service-underline{
+  width: 15rem;
+  height: 0.25rem;
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  margin: 0 auto;
+}
+.service-title{
+  color: var(--clr-white);
+  margin-bottom: 0;
+  margin-top: 2rem;
+}
+.service-center{
+  margin: 2rem auto;
+  width: 85vw; 
+}
+.service-text{
+  color: var(--clr-white);
+  width: 85vw;
+  text-align: center;
+  line-height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 0 auto;
+}
+.box{
+  color: var(--clr-white);
+  text-align: center;
+  padding: 1.2rem;
+  border: 1px solid var(--clr-white);
+  transition: all 0.2s linear;
+}
+.box:hover{
+  box-shadow: 0 0 0 20px var(--clr-primary-1);
+  background: var(--clr-primary-1);
+}
+.service-icon{
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.box h3{
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
+  font-size: 1.75rem;
+}
+.box p{
+  font-size: 1rem;
+  color: #ccc;
+}
+.service-btn{
+  background: var(--clr-primary-1);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.service-cards{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+/*
+==============================
+Team
+==============================
+*/
+.team-title{
+  margin: 2rem 0;
+}
+.team-text{
+  width: 85vw;
+  text-align: center;
+  line-height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 0 auto;
+}
+.team-box{
+  padding: 0.5rem 0;
+  text-align: center;
+  position: relative;
+}
+.team-box img{
+  border-radius: var(--radius);
+  margin: 0 auto;
+  box-shadow: 5px 5px 0px var(--clr-primary-1);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.team-box h3{
+  letter-spacing: 0;
+  margin: 0.75rem 0;
+  color: var(--clr-primary-1);
+  font-size: 1.55rem;
+}
+.team-box p{
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.team-box-btn{
+  background: var(--clr-white);
+  color: var(--clr-primary-1);
+  font-size: 1.3rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(20px);
+  opacity: 0;
+}
+.team-box ul{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.team-box:hover .team-box-btn{
+  transform: translateY(0);
+  opacity: 1;
+}
+.team-box img:hover{
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.team-icon{
+  color: var(--clr-primary-1);
+}
+.team-btn{
+  background: var(--clr-primary-1);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.team-cards{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.team-center{
+  width: 85vw;
+}
+.team-underline{
+  background: var(--clr-primary-1);
+  margin: 0 auto;
+  width: 12rem;
+  border-radius: var(--radius);
+}
+.team-button{
+  /* margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem; */
+  width: 200px;
+  display: block; /* Ensure the button is a block-level element */
+  margin: 2rem auto; /* Center the button horizontally */
+  text-align: center; /* Center the text within the button */
+}
+.contact{
+  background: #eee;
+  padding: 2rem 0;
+}
+.contact-title{
+  margin-bottom: 1rem;
+}
+.contact-underline{
+  margin: 1.5rem auto;
+  width: 20rem;
+}
+.contact-text{
+  width: 85vw;
+  text-align: center;
+  line-height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 0 auto;
+  color: #555;
+}
+.contact-center{
+  width: 85vw;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-info{
+  padding: 2rem 0;
+  text-align: center;
+  margin: 0 auto;
+}
+.contact1{
+  text-align: center;
+}
+.control-form{
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 0.25rem;
+  color: var(--clr-white);
+  border: 0;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.5;
+}
+.contact-btn{
+  border-radius: 0.25rem;
+  display: block;
+  width: 130px;
+  letter-spacing: 0;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+}
+.contact2{
+  text-align: center;
+}
+.contact-info-box{
+  background: var(--clr-white);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  text-align: left;
+  display: grid;
+  align-items: center;
+}
+.contact-info-box i{
+  color: var(--clr-primary-1);
+  font-size: 1rem;
+  margin: 0 0.25rem;
+}
+.contact-info-box p{
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.contact-info-box span{
+  color: #555;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.subscribe form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.subscribe form input{
+  outline: 0;
+  border: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.subscribe-btn{
+  align-self: center;
+  letter-spacing: 0;
+  font-size: 1rem;
+}
+@media screen and (min-width: 576px){
+  .contact-info{
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 768px){
+  .contact-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+   .contact-info-box{
+    padding: 1rem 1.5rem;
+  }
+  .contact-info-box p{
+    font-size: 1.1rem;
+  }
+  .contact-info-box span{
+    font-size: 1.1rem;
+  }
+  .contact-info-box i{
+    font-size: 1.1rem;
+  }
+}
+.footer{
+  background: #333;
+  color: var(--clr-white);
+  padding: 0.565rem 0;
+}
+.footer p{
+  width: 250px;
+  margin: 1rem auto;
+  font-size: 1rem;
+  text-align: center;
+}
