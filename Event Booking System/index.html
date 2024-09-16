@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/103262dd4b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-----------navbar------->
+    <section class="navbar">
+        <div class="logo">
+            <h4>Event <span>Booking</span></h4>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#Home" class="nav-link">Home</a></li>
+            <li><a href="#Event" class="nav-link">Events</a></li>
+            <li><a href="audience.html" class="nav-link">Audience</a></li>
+        </ul>
+    </section>
+    <!-----------end of navbar------>
+    <!--Header Section-->
+    <section class="section header" id="Home">
+        <div class="section-center header-center">
+            <div class="section-title">
+                <h2>Music & Entertainment</h2>
+            </div>
+            <div class="header-text">
+                <p>Find comedians by availability, rating, genre, and past performance success.</p>
+            </div>
+            <a href="booking.html" class="btn header-btn">Booking</a>
+        </div>
+    </section>
+    <!--End of Header Section-->
+    
+    <!---Event booking-->
+    <section class="events section" id="Event">
+        <div class="section-title event-title">
+            <h2>Events</h2>
+        </div>
+
+        <div class="search-bar">
+            <div class="searchBarFields">
+                <input type="text" id="event-search" placeholder="Search by event name, month, and date">
+                <input type="date" id="date-picker">
+            </div>
+            <div class="searchBtn">
+                <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+       <div class="section-center event-center" id="event-cards">
+
+        </div>
+       <div class="show-more-container">
+            <button id="show-more" class="btn show-more-btn">Show More</button>
+        </div>
+    </section>
+   
+    <section class="booking" id="Booking">
+        <div class="section-center form-center">
+            <form action="" class="form">
+                <div class="section-title booking-title">
+                    Registration
+                    <div class="underline"></div>
+                </div>
+               
+                <div class="inputFields">
+                    <div class="basic-info">
+                        <label for="">Full Name</label><br>
+                        <input type="text" class="input1" placeholder="Ali Nawab Khan" id="full-name" required><br>
+                        <label for="">Email</label><br>
+                        <input type="email" class="input1" placeholder="alinawabkhan15@gmail.com" id="form-email" required><br>
+                        <label for="">Event Name</label><br>
+                        <input type="text" class="input1" id="evt-name" value="event-name" disabled><br>
+                    </div>
+                    <div class="necessary-info">
+                        <label for="">Tickets</label><br>
+                        <input type="number" class="input1" placeholder="1-10" min="1" max="10" id="tickets" value="2" required><br>
+                        <label for="">Location</label><br>
+                        <input type="text" class="input1" id="loca" disabled><br>
+                        <label for="">Date</label><br>
+                        <input type="date" class="input1" id="tarikh" disabled>
+                    </div>
+                </div>
+                <div class="gender">
+                    <label for="">Gender</label><br>
+                    <div class="gender-container">
+                        <div class="gender-container1">
+                            <input type="radio" id="gender-male" name="gender" value="Male">
+                            <input type="radio" id="gender-female" name="gender" value="Female">
+                            <input type="radio" id="gender-prefer-not" name="gender" value="Prefer not to say">
+                        </div>
+                        <div class="gender-container2">
+                            <label for="gender-male">Male</label>
+                            <label for="gender-female">Female</label>
+                            <label for="gender-prefer-not">Prefer not to say</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button" id="submit-btn">Submit</button>
+                </div>
+            </form>
+            
+        </div>
+        <div class="container">
+            <div class="popup-btn" id="popup-btn">
+                <img src="images/404-tick.png" alt="">
+                <h4>Thank you</h4>
+                <p>Your details have been successfully submitted</p>
+                <p>Total Price : <span id="price">price</span></p>
+                <p>ID : <span id="UId">#efie93h</span></p>
+                <button type="button" id="closePopup" class="closepopup">OK</button>
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>

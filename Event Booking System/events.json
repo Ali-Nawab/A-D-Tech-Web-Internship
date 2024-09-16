@@ -1,0 +1,115 @@
+{
+    "events": [
+      {
+        "eventName": "Concert & Live Music",
+        "image": "images/concert.jpeg",
+        "month": "February",
+        "day": "26",
+        "location": "Lahore",
+        "description": "Experience the magic of live music with a variety of concerts ranging from soothing jazz nights to electrifying rock shows. Whether you're a fan of classical symphonies or the latest pop hits, there's a concert for every music lover.",
+        "price": 25,
+        "date": "26/02/2024"
+      },
+      {
+        "eventName": "Comedy Show",
+        "image": "images/comedy.jpeg",
+        "month": "June",
+        "day": "5",
+        "location": "Islamabad",
+        "description": "Get ready to laugh out loud with our lineup of comedy shows. From stand-up acts by top comedians to improv performances and comedy magic shows, these events are sure to bring joy and laughter to your evening.",
+        "price": 30,
+        "date": "05/06/2024"
+      },
+      {
+        "eventName": "Theater & Performing Art",
+        "image": "images/theater.jpeg",
+        "month": "March",
+        "day": "20",
+        "location": "Wah Cantt",
+        "description": "Immerse yourself in the world of theater with captivating performances that include musical theater, Shakespearean plays, ballet, and opera. Enjoy the finest in performing arts, brought to life by talented artists and performers.",
+        "price": 20,
+        "date": "20/03/2024"
+      },
+      {
+        "eventName": "Film & Cinema",
+        "image": "images/film.jpeg",
+        "month": "September",
+        "day": "11",
+        "location": "Taxila",
+        "description": "Indulge in a cinematic experience with our selection of film events. Whether you prefer a classic movie marathon, a retro drive-in movie, or a red carpet premiere, our film and cinema events are perfect for movie enthusiasts.",
+        "price": 15,
+        "date": "11/09/2024"
+      },
+      {
+        "eventName": "Variety & Talent Shows",
+        "image": "images/talent.jpeg",
+        "month": "December",
+        "day": "15",
+        "location": "Karachi",
+        "description": "Discover a wide range of entertainment with our variety and talent shows. Enjoy a mix of acts including music, dance, comedy, and more, showcasing the incredible talents of emerging and established performers.",
+        "price": 35,
+        "date": "15/12/2024"
+      },
+      {
+        "eventName": "Cultural Event",
+        "image": "images/cultural.jpeg",
+        "month": "June",
+        "day": "10",
+        "location": "Quetta",
+        "description": "Celebrate diversity with our cultural events, featuring music, dance, and performances from around the world. Enjoy the richness of global traditions through folk music festivals, cultural dance shows, and world music concerts.",
+        "price": 60,
+        "date": "10/06/2024"
+      },
+      {
+        "eventName": "Cultural Event",
+        "image": "images/cultural.jpeg",
+        "month": "June",
+        "day": "10",
+        "location": "Quetta",
+        "description": "Celebrate diversity with our cultural events, featuring music, dance, and performances from around the world. Enjoy the richness of global traditions through folk music festivals, cultural dance shows, and world music concerts.",
+        "price": 60,
+        "date": "10/06/2024"
+      },
+      {
+        "eventName": "Film & Cinema",
+        "image": "images/film.jpeg",
+        "month": "September",
+        "day": "11",
+        "location": "Taxila",
+        "description": "Indulge in a cinematic experience with our selection of film events. Whether you prefer a classic movie marathon, a retro drive-in movie, or a red carpet premiere, our film and cinema events are perfect for movie enthusiasts.",
+        "price": 15,
+        "date": "11/09/2024"
+      },
+      {
+        "eventName": "Variety & Talent Shows",
+        "image": "images/talent.jpeg",
+        "month": "December",
+        "day": "15",
+        "location": "Karachi",
+        "description": "Discover a wide range of entertainment with our variety and talent shows. Enjoy a mix of acts including music, dance, comedy, and more, showcasing the incredible talents of emerging and established performers.",
+        "price": 35,
+        "date": "15/12/2024"
+      },
+      {
+        "eventName": "Cultural Event",
+        "image": "images/cultural.jpeg",
+        "month": "June",
+        "day": "10",
+        "location": "Quetta",
+        "description": "Celebrate diversity with our cultural events, featuring music, dance, and performances from around the world. Enjoy the richness of global traditions through folk music festivals, cultural dance shows, and world music concerts.",
+        "price": 60,
+        "date": "10/06/2024"
+      },
+      {
+        "eventName": "Cultural Event",
+        "image": "images/cultural.jpeg",
+        "month": "June",
+        "day": "10",
+        "location": "Quetta",
+        "description": "Celebrate diversity with our cultural events, featuring music, dance, and performances from around the world. Enjoy the richness of global traditions through folk music festivals, cultural dance shows, and world music concerts.",
+        "price": 60,
+        "date": "10/06/2024"
+      }
+    ]
+  }
+  

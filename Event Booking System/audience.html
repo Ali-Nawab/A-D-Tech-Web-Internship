@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registrations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .accordion {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .accordion.active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 15px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .dropdown-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Event Registrations</h1>
+
+    <!-- Sections will be dynamically created here -->
+    <div id="eventSections"></div>
+</div>
+
+<script>
+    // Function to retrieve and display data
+    function displayEventRegistrations() {
+        const eventsData = {};
+
+        // Iterate through localStorage to find all event-related data
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(key);
+            const data = JSON.parse(localStorage.getItem(key));
+
+            if (data && data.eventNameForm && data.fullNameForm && data.ticketsForm) {
+                if (!eventsData[data.eventNameForm]) {
+                    eventsData[data.eventNameForm] = [];
+                }
+                eventsData[data.eventNameForm].push({
+                    fullName: data.fullNameForm,
+                    tickets: data.ticketsForm
+                });
+            }
+        }
+
+        // Populate sections on the HTML page
+        const eventSections = document.getElementById('eventSections');
+        eventSections.innerHTML = '';
+
+        for (const eventName in eventsData) {
+            const accordion = document.createElement('button');
+            accordion.className = 'accordion';
+            accordion.innerHTML = `
+                <span>${eventName}</span>
+                <span class="dropdown-icon">&#9662;</span>
+            `;
+
+            const panel = document.createElement('div');
+            panel.className = 'panel';
+
+            const table = document.createElement('table');
+            table.innerHTML = `
+                <tr>
+                    <th>Full Name</th>
+                    <th>Tickets</th>
+                </tr>
+            `;
+
+            eventsData[eventName].forEach(registration => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${registration.fullName}</td>
+                    <td>${registration.tickets}</td>
+                `;
+                table.appendChild(row);
+            });
+
+            panel.appendChild(table);
+            eventSections.appendChild(accordion);
+            eventSections.appendChild(panel);
+
+            // Event listener to toggle accordion
+            accordion.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const panel = this.nextElementSibling;
+                panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    }
+
+    // Call the function to display data on page load
+    displayEventRegistrations();
+</script>
+
+</body>
+</html>
